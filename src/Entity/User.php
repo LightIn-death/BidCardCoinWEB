@@ -35,6 +35,51 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $age;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $numero;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $solvable;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $listeMotClef;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $verifSolvable;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $verifIdentity;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $verifRessortissants;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -114,5 +159,113 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getNumero(): ?string
+    {
+        return $this->numero;
+    }
+
+    public function setNumero(?string $numero): self
+    {
+        $this->numero = $numero;
+
+        return $this;
+    }
+
+    public function getSolvable(): ?string
+    {
+        return $this->solvable;
+    }
+
+    public function setSolvable(?string $solvable): self
+    {
+        $this->solvable = $solvable;
+
+        return $this;
+    }
+
+    public function getListeMotClef(): ?string
+    {
+        return $this->listeMotClef;
+    }
+
+    public function setListeMotClef(?string $listeMotClef): self
+    {
+        $this->listeMotClef = $listeMotClef;
+
+        return $this;
+    }
+
+    public function getVerifSolvable(): ?bool
+    {
+        return $this->verifSolvable;
+    }
+
+    public function setVerifSolvable(bool $verifSolvable): self
+    {
+        $this->verifSolvable = $verifSolvable;
+
+        return $this;
+    }
+
+    public function getVerifIdentity(): ?bool
+    {
+        return $this->verifIdentity;
+    }
+
+    public function setVerifIdentity(bool $verifIdentity): self
+    {
+        $this->verifIdentity = $verifIdentity;
+
+        return $this;
+    }
+
+    public function getVerifRessortissants(): ?bool
+    {
+        return $this->verifRessortissants;
+    }
+
+    public function setVerifRessortissants(bool $verifRessortissants): self
+    {
+        $this->verifRessortissants = $verifRessortissants;
+
+        return $this;
     }
 }
