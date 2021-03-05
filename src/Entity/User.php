@@ -92,10 +92,28 @@ class User implements UserInterface
      */
     private $Encheres;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrdreAchat::class, mappedBy="Utilistateur", orphanRemoval=true)
+     */
+    private $ordreAchats;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Paiement::class, mappedBy="Utilisateur", orphanRemoval=true)
+     */
+    private $Paiements;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="Vendeur", orphanRemoval=true)
+     */
+    private $Produits;
+
     public function __construct()
     {
         $this->ListeAdresses = new ArrayCollection();
         $this->Encheres = new ArrayCollection();
+        $this->ordreAchats = new ArrayCollection();
+        $this->Paiements = new ArrayCollection();
+        $this->Produits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -338,6 +356,96 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($enchere->getUtilistateur() === $this) {
                 $enchere->setUtilistateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OrdreAchat[]
+     */
+    public function getOrdreAchats(): Collection
+    {
+        return $this->ordreAchats;
+    }
+
+    public function addOrdreAchat(OrdreAchat $ordreAchat): self
+    {
+        if (!$this->ordreAchats->contains($ordreAchat)) {
+            $this->ordreAchats[] = $ordreAchat;
+            $ordreAchat->setUtilistateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdreAchat(OrdreAchat $ordreAchat): self
+    {
+        if ($this->ordreAchats->removeElement($ordreAchat)) {
+            // set the owning side to null (unless already changed)
+            if ($ordreAchat->getUtilistateur() === $this) {
+                $ordreAchat->setUtilistateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Paiement[]
+     */
+    public function getPaiements(): Collection
+    {
+        return $this->Paiements;
+    }
+
+    public function addPaiement(Paiement $paiement): self
+    {
+        if (!$this->Paiements->contains($paiement)) {
+            $this->Paiements[] = $paiement;
+            $paiement->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removePaiement(Paiement $paiement): self
+    {
+        if ($this->Paiements->removeElement($paiement)) {
+            // set the owning side to null (unless already changed)
+            if ($paiement->getUtilisateur() === $this) {
+                $paiement->setUtilisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Produit[]
+     */
+    public function getProduits(): Collection
+    {
+        return $this->Produits;
+    }
+
+    public function addProduit(Produit $produit): self
+    {
+        if (!$this->Produits->contains($produit)) {
+            $this->Produits[] = $produit;
+            $produit->setVendeur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): self
+    {
+        if ($this->Produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getVendeur() === $this) {
+                $produit->setVendeur(null);
             }
         }
 

@@ -38,6 +38,11 @@ class Enchere
      */
     private $Utilistateur;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Produit::class, mappedBy="EnchereGagnante", cascade={"persist", "remove"})
+     */
+    private $Produit;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,28 @@ class Enchere
     public function setUtilistateur(?User $Utilistateur): self
     {
         $this->Utilistateur = $Utilistateur;
+
+        return $this;
+    }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->Produit;
+    }
+
+    public function setProduit(?Produit $Produit): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($Produit === null && $this->Produit !== null) {
+            $this->Produit->setEnchereGagnante(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($Produit !== null && $Produit->getEnchereGagnante() !== $this) {
+            $Produit->setEnchereGagnante($this);
+        }
+
+        $this->Produit = $Produit;
 
         return $this;
     }
