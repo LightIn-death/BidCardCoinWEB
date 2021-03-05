@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+
+
+
+
+
+
+    {% if error %}
+        <div class="flex justify-center align-center bg-red-500 mx-auto p-5 alert  rounded-lg alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+
+
+    <!-- Container -->
+    <div class="container mx-auto">
+        <div class="flex justify-center px-6 my-12">
+            <!-- Row -->
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                <!-- Col -->
+                <div
+                        class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+                        style="background-image: url('https://source.unsplash.com/oWTW-jNGl9I/600x800')"
+                ></div>
+                <!-- Col -->
+                <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <div class="px-8 mb-4 text-center">
+                        <h3 class="pt-4 mb-2 text-2xl">Vous avez deja un compte ? <br/> Connectez vous !</h3>
+                        <p class="mb-4 text-sm text-gray-700">
+                            Reconnectez vous a votre compte pour accedez au milliers d'encheres proposé sur notre site !
+                            Si vous cherchez la perle rare ou si vous souhaitez vous debarrasser de vos vieux objets,
+                            vous etes au bon endroit !
+                        </p>
+                    </div>
+                    <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" method="post">
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+                                Email
+                            </label>
+                            <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline form-control form-control"
+                                    required autofocus
+                                    id="inputEmail"
+                                    name="email"
+                                    type="email"
+                                    value="{{ last_username }}"
+                                    placeholder="Enter Email Address..."
+                            />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+                                Mot de passe
+                            </label>
+                            <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="inputPassword"
+                                    type="password"
+                                    placeholder="Enter password..."
+                                    name="password"
+                                    required
+                            />
+                        </div>
+
+
+                        <div class="mb-6 text-center">
+                            <button
+                                    class="w-full px-4 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline"
+                                    type="submit"
+                            >
+                                Se connecter
+                            </button>
+                        </div>
+
+                        <div class="mb-6 text-center">
+                            <a
+                                    class="w-full px-4 py-2 font-bold text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:shadow-outline"
+                                    href="{{ path(app_register) }}"
+                            >
+                                S'inscrire
+                            </a>
+                        </div>
+
+
+                        <hr class="mb-6 border-t"/>
+                        <div class="text-center">
+                            <a
+                                    class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                                    href="./index.html"
+                            >
+                                Vous avez oubliez votre mot de passe ? Changez le !
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

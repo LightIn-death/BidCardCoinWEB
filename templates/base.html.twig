@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
 
     <title>BidCardCoin</title>
+
+    <link rel="icon"  type="image/png"  href="/ressources/logo.png"sizes="68x42" />
+
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
 
     {% block stylesheets %}{% endblock %}
 
@@ -87,11 +92,8 @@
 
 
     <div class=" ml-4">
-        <a href="#"
+        <a href="{{ path("app_login") }}"
            class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-600 hover:bg-white lg:mt-0">SignIn/SignUp</a>
-    </div>
-
-
     </div>
 </nav>
 
@@ -114,4 +116,4 @@ Blue : blue-300
 
 
 
-        #}
+         #}
