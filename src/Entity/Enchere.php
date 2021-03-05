@@ -43,6 +43,21 @@ class Enchere
      */
     private $Produit;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Lot::class, inversedBy="Encheres")
+     */
+    private $Lot;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Commissaire::class, inversedBy="Encheres")
+     */
+    private $Commissaire;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=OrdreAchat::class, inversedBy="Encheres")
+     */
+    private $OrdreAchat;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -114,6 +129,42 @@ class Enchere
         }
 
         $this->Produit = $Produit;
+
+        return $this;
+    }
+
+    public function getLot(): ?Lot
+    {
+        return $this->Lot;
+    }
+
+    public function setLot(?Lot $Lot): self
+    {
+        $this->Lot = $Lot;
+
+        return $this;
+    }
+
+    public function getCommissaire(): ?Commissaire
+    {
+        return $this->Commissaire;
+    }
+
+    public function setCommissaire(?Commissaire $Commissaire): self
+    {
+        $this->Commissaire = $Commissaire;
+
+        return $this;
+    }
+
+    public function getOrdreAchat(): ?OrdreAchat
+    {
+        return $this->OrdreAchat;
+    }
+
+    public function setOrdreAchat(?OrdreAchat $OrdreAchat): self
+    {
+        $this->OrdreAchat = $OrdreAchat;
 
         return $this;
     }

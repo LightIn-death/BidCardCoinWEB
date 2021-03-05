@@ -54,9 +54,21 @@ class Adresse
      */
     private $Commissaire;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Stock::class, mappedBy="Adresse", orphanRemoval=true)
+     */
+    private $Stocks;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Vente::class, mappedBy="Adresse")
+     */
+    private $Ventes;
+
     public function __construct()
     {
         $this->ListePersonne = new ArrayCollection();
+        $this->Stocks = new ArrayCollection();
+        $this->Ventes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,6 +168,66 @@ class Adresse
     public function setCommissaire(?Commissaire $Commissaire): self
     {
         $this->Commissaire = $Commissaire;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Stock[]
+     */
+    public function getStocks(): Collection
+    {
+        return $this->Stocks;
+    }
+
+    public function addStock(Stock $stock): self
+    {
+        if (!$this->Stocks->contains($stock)) {
+            $this->Stocks[] = $stock;
+            $stock->setAdresse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStock(Stock $stock): self
+    {
+        if ($this->Stocks->removeElement($stock)) {
+            // set the owning side to null (unless already changed)
+            if ($stock->getAdresse() === $this) {
+                $stock->setAdresse(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Vente[]
+     */
+    public function getVentes(): Collection
+    {
+        return $this->Ventes;
+    }
+
+    public function addVente(Vente $vente): self
+    {
+        if (!$this->Ventes->contains($vente)) {
+            $this->Ventes[] = $vente;
+            $vente->setAdresse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVente(Vente $vente): self
+    {
+        if ($this->Ventes->removeElement($vente)) {
+            // set the owning side to null (unless already changed)
+            if ($vente->getAdresse() === $this) {
+                $vente->setAdresse(null);
+            }
+        }
 
         return $this;
     }

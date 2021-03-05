@@ -54,9 +54,15 @@ class Commissaire
      */
     private $Adresses;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Enchere::class, mappedBy="Commissaire")
+     */
+    private $Encheres;
+
     public function __construct()
     {
         $this->Adresses = new ArrayCollection();
+        $this->Encheres = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -160,6 +166,36 @@ class Commissaire
             // set the owning side to null (unless already changed)
             if ($adress->getCommissaire() === $this) {
                 $adress->setCommissaire(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Enchere[]
+     */
+    public function getEncheres(): Collection
+    {
+        return $this->Encheres;
+    }
+
+    public function addEnchere(Enchere $enchere): self
+    {
+        if (!$this->Encheres->contains($enchere)) {
+            $this->Encheres[] = $enchere;
+            $enchere->setCommissaire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnchere(Enchere $enchere): self
+    {
+        if ($this->Encheres->removeElement($enchere)) {
+            // set the owning side to null (unless already changed)
+            if ($enchere->getCommissaire() === $this) {
+                $enchere->setCommissaire(null);
             }
         }
 

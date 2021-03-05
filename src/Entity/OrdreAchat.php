@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrdreAchatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,6 +45,16 @@ class OrdreAchat
      * @ORM\Column(type="datetime")
      */
     private $Date;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Enchere::class, mappedBy="OrdreAchat")
+     */
+    private $Encheres;
+
+    public function __construct()
+    {
+        $this->Encheres = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +117,36 @@ class OrdreAchat
     public function setDate(\DateTimeInterface $Date): self
     {
         $this->Date = $Date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Enchere[]
+     */
+    public function getEncheres(): Collection
+    {
+        return $this->Encheres;
+    }
+
+    public function addEnchere(Enchere $enchere): self
+    {
+        if (!$this->Encheres->contains($enchere)) {
+            $this->Encheres[] = $enchere;
+            $enchere->setOrdreAchat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnchere(Enchere $enchere): self
+    {
+        if ($this->Encheres->removeElement($enchere)) {
+            // set the owning side to null (unless already changed)
+            if ($enchere->getOrdreAchat() === $this) {
+                $enchere->setOrdreAchat(null);
+            }
+        }
 
         return $this;
     }

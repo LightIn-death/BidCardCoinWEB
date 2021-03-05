@@ -44,11 +44,22 @@ class Lot
      */
     private $Produits;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Vente::class, inversedBy="Lot")
+     */
+    private $Vente;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Enchere::class, mappedBy="Lot")
+     */
+    private $Encheres;
+
     public function __construct()
     {
         $this->ordreAchats = new ArrayCollection();
         $this->paiements = new ArrayCollection();
         $this->Produits = new ArrayCollection();
+        $this->Encheres = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -164,6 +175,48 @@ class Lot
             // set the owning side to null (unless already changed)
             if ($produit->getLot() === $this) {
                 $produit->setLot(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getVente(): ?Vente
+    {
+        return $this->Vente;
+    }
+
+    public function setVente(?Vente $Vente): self
+    {
+        $this->Vente = $Vente;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Enchere[]
+     */
+    public function getEncheres(): Collection
+    {
+        return $this->Encheres;
+    }
+
+    public function addEnchere(Enchere $enchere): self
+    {
+        if (!$this->Encheres->contains($enchere)) {
+            $this->Encheres[] = $enchere;
+            $enchere->setLot($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnchere(Enchere $enchere): self
+    {
+        if ($this->Encheres->removeElement($enchere)) {
+            // set the owning side to null (unless already changed)
+            if ($enchere->getLot() === $this) {
+                $enchere->setLot(null);
             }
         }
 
