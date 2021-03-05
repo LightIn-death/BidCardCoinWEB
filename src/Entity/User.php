@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -79,6 +81,22 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $verifRessortissants;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Adresse::class, mappedBy="ListePersonne")
+     */
+    private $ListeAdresses;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Enchere::class, mappedBy="Utilistateur", orphanRemoval=true)
+     */
+    private $Encheres;
+
+    public function __construct()
+    {
+        $this->ListeAdresses = new ArrayCollection();
+        $this->Encheres = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -265,6 +283,63 @@ class User implements UserInterface
     public function setVerifRessortissants(bool $verifRessortissants): self
     {
         $this->verifRessortissants = $verifRessortissants;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Adresse[]
+     */
+    public function getListeAdresses(): Collection
+    {
+        return $this->ListeAdresses;
+    }
+
+    public function addListeAdress(Adresse $listeAdress): self
+    {
+        if (!$this->ListeAdresses->contains($listeAdress)) {
+            $this->ListeAdresses[] = $listeAdress;
+            $listeAdress->addListePersonne($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListeAdress(Adresse $listeAdress): self
+    {
+        if ($this->ListeAdresses->removeElement($listeAdress)) {
+            $listeAdress->removeListePersonne($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Enchere[]
+     */
+    public function getEncheres(): Collection
+    {
+        return $this->Encheres;
+    }
+
+    public function addEnchere(Enchere $enchere): self
+    {
+        if (!$this->Encheres->contains($enchere)) {
+            $this->Encheres[] = $enchere;
+            $enchere->setUtilistateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnchere(Enchere $enchere): self
+    {
+        if ($this->Encheres->removeElement($enchere)) {
+            // set the owning side to null (unless already changed)
+            if ($enchere->getUtilistateur() === $this) {
+                $enchere->setUtilistateur(null);
+            }
+        }
 
         return $this;
     }

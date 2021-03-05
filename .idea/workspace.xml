@@ -20,17 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/ressources/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -153,10 +150,16 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../playground/BasicApp" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="" />
@@ -165,6 +168,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614782272528</updated>
       <workItem from="1614782274689" duration="8910000" />
+      <workItem from="1614927890459" duration="815000" />
     </task>
     <servers />
   </component>
@@ -181,6 +185,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -190,5 +195,13 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1090" y="584" key="#Composer/-1920.255.1920.1050/0.0.2560.1410@0.0.2560.1410" timestamp="1614782398679" />
+    <state x="734" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614866851506">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="734" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.255.1920.1050/0.0.2560.1410@0.0.2560.1410" timestamp="1614866851506" />
+    <state x="1060" y="459" key="FileChooserDialogImpl" timestamp="1614866872374">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="1060" y="459" key="FileChooserDialogImpl/-1920.255.1920.1050/0.0.2560.1410@0.0.2560.1410" timestamp="1614866872374" />
   </component>
 </project>
