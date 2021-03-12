@@ -20,15 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/Adresse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/Categorie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/commissaire.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/enchere.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/estimation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/logo_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/lot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/ordre-achat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/paiement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/produit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/stock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/utilisateur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/ressources/vente.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/MeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/me/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthenticator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,15 +172,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/security" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/ressources" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Breval Nouveau\Desktop\BidCardCoinWEB\public\ressources" />
       <recent name="C:\Users\Breval Nouveau\Desktop\BidCardCoinWEB\templates\security" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Breval Nouveau\Desktop\BidCardCoinWEB\templates\security" />
     </key>
   </component>
@@ -188,6 +205,9 @@
       <updated>1614782272528</updated>
       <workItem from="1614782274689" duration="8910000" />
       <workItem from="1614927890459" duration="8279000" />
+      <workItem from="1615533503523" duration="1514000" />
+      <workItem from="1615535677122" duration="3233000" />
+      <workItem from="1615540620323" duration="10145000" />
     </task>
     <servers />
   </component>
@@ -208,23 +228,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1090" y="584" key="#Composer" timestamp="1614782398679">
-      <screen x="0" y="0" width="2560" height="1410" />
-    </state>
-    <state x="1090" y="584" key="#Composer/-1920.255.1920.1050/0.0.2560.1410@0.0.2560.1410" timestamp="1614782398679" />
-    <state x="734" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614866851506">
-      <screen x="0" y="0" width="2560" height="1410" />
-    </state>
-    <state x="734" y="359" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.255.1920.1050/0.0.2560.1410@0.0.2560.1410" timestamp="1614866851506" />
-    <state x="1010" y="459" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614959862783">
-      <screen x="0" y="0" width="2560" height="1410" />
-    </state>
-    <state x="1010" y="459" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.255.1920.1050/0.0.2560.1410@0.0.2560.1410" timestamp="1614959862783" />
-    <state x="1060" y="459" key="FileChooserDialogImpl" timestamp="1614866872374">
-      <screen x="0" y="0" width="2560" height="1410" />
-    </state>
-    <state x="1060" y="459" key="FileChooserDialogImpl/-1920.255.1920.1050/0.0.2560.1410@0.0.2560.1410" timestamp="1614866872374" />
   </component>
 </project>

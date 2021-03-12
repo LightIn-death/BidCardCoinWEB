@@ -36,10 +36,13 @@ class SecurityController extends AbstractController
     /**
      * @Route("/SignUp", name="app_register")
      */
-
-
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, AppAuthenticator $authenticator): Response
     {
+
+
+//         'email' => $request->request->get('email'),
+
+
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -52,11 +55,11 @@ class SecurityController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-            $user->setNom("Nom");
-            $user->setPrenom("Prenom");
-            $user->setAge(20);
-            $user->setNumero("0782510664");
-            $user->setSolvable("solvable?");
+            $user->setNom(   $request->request->get('lastname'));
+            $user->setPrenom( $request->request->get('firstname'));
+            $user->setAge( $request->request->get('age'));
+            $user->setNumero( $request->request->get('phone'));
+            $user->setSolvable("");
             $user->setVerifIdentity(true);
             $user->setVerifRessortissants(true);
             $user->setVerifSolvable(true);

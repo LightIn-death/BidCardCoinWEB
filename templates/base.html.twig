@@ -14,7 +14,7 @@
 
     {% block javascripts %}{% endblock %}
 </head>
-<body class="bg-gray-100 transition  transition-all duration-500 ease-in-out">
+<body class="bg-gray-200 transition  transition-all duration-500 ease-in-out">
 
 
 <nav class="fixed top-0 w-full flex items-center justify-between bg-gray-700 p-3">
@@ -85,14 +85,13 @@
                     </select>
                 </div>
             </div>
-
         </div>
     </div>
 
 
     {% if app.user %}
         <div class=" ml-4">
-            <a href="{{ path("app_login") }}"
+            <a href="{{ path("me") }}"
                class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-600 hover:bg-white lg:mt-0">{{ app.user.nom }}</a>
         </div>
     {% else %}
@@ -106,8 +105,10 @@
 
 </nav>
 
+<img class="fixed bottom-0 right-0 w-1/2 h-auto" style="z-index: -1" src="/ressources/logo_large.png"
+     alt="logo in background">
+<div class="container z-1 mx-auto mt-24">
 
-<div class="container mx-auto mt-24">
 
     {% block body %}{% endblock %}
 </div>
@@ -125,4 +126,4 @@ Blue : blue-300
 
 
 
-          #}
+             #}
