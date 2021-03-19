@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commissaire{% endblock %}
+
+{% block body %}
+    <h1>Commissaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commissaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ commissaire.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ commissaire.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ commissaire.Age }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ commissaire.Email }}</td>
+            </tr>
+            <tr>
+                <th>TelephoneM</th>
+                <td>{{ commissaire.TelephoneM }}</td>
+            </tr>
+            <tr>
+                <th>TelephoneF</th>
+                <td>{{ commissaire.TelephoneF }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('commissaire_index') }}">back to list</a>
+
+    <a href="{{ path('commissaire_edit', {'id': commissaire.id}) }}">edit</a>
+
+    {{ include('commissaire/_delete_form.html.twig') }}
+{% endblock %}

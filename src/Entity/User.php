@@ -452,5 +452,12 @@ class User implements UserInterface
         }
 
         return $this;
+
+    }
+
+
+    public function __toString(): string
+    {
+        return strtoupper($this->nom) .' '. $this->prenom;
     }
 }
