@@ -201,4 +201,8 @@ class Commissaire
 
         return $this;
     }
+    public function __toString(): string
+    {
+        return strtoupper($this->Nom) .' '. $this->Prenom;
+    }
 }

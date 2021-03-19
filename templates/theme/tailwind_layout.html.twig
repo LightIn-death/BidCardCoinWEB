@@ -1,31 +1,26 @@
 {% use "form_div_layout.html.twig" %}
 
-{% block text_widget %}
-    {%- set type = type|default('text') -%}
-    {{ block('form_widget_simple') }}
-{% endblock %}
 
 
 
-
-
-
-{% block button_widget -%}
-
-    <div class="mt-10 flex justify-center">
-        {%- set attr = attr|merge({class: (attr.class|default('bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'))|trim}) -%}
-        {{- parent() -}}
+{% block form_row -%}
+    {%- set widget_attr = {} -%}
+    <div class="mb-6 border-2 border-gray-300 rounded-lg w-full p-4">
+        <div class="{{ block('form_group_class') }}  w-full">
+            {{- form_label(form) -}}
+            {{ form_errors(form) }}
+            {{- form_widget(form, widget_attr) -}}
+            {{- form_help(form) -}}
+        </div>
     </div>
-{%- endblock button_widget %}
+{%- endblock form_row %}
 
-{%- block form_widget_simple -%}
-    <input type="{{ type }}"
-           id="{{ id }}"
-           name="{{ full_name }}"
-           class="{{ block('input_class') }} bg-gray-100"
-           {% if value is not empty %}value="{{ value }}" {% endif %}
-            {% if required is defined %}required {% endif %}/>
-{%- endblock form_widget_simple -%}
+
+
+
+
+
+
 
 {% block form_label -%}
     {%- if label is same as(false) -%}
@@ -38,19 +33,12 @@
     {%- endif -%}
 {%- endblock form_label %}
 
-{% block form_row -%}
-    {%- set widget_attr = {} -%}
-    <div class="mb-6 bg-gray-700 rounded-lg  p-1">
-        <div class="md:flex md:items-center justify-center align-center row mb-2">
-            {{- form_label(form) -}}
-            <div class="{{ block('form_group_class') }}">
-                {{- form_widget(form, widget_attr) -}}
-                {{- form_help(form) -}}
-            </div>
-        </div>
-        {{ form_errors(form) }}
-    </div>
-{%- endblock form_row %}
+
+
+
+
+
+
 
 {%- block form_errors -%}
     {%- if errors|length > 0 -%}
@@ -67,12 +55,68 @@
     {%- endif -%}
 {%- endblock form_errors -%}
 
+
+
+
+
+
+
+
+
+{%- block form_widget_simple -%}
+    <input type="{{ type }}"
+           id="{{ id }}"
+           name="{{ full_name }}"
+           class="{{ block('input_class') }} bg-gray-100  border-gray-600 w-full"
+           {% if value is not empty %}value="{{ value }}" {% endif %}
+            {% if required is defined %}required {% endif %}/>
+{%- endblock form_widget_simple -%}
+
+
+
+
+
+
+
+
+
+
+
+{% block text_widget %}
+    {%- set type = type|default('text') -%}
+    {{ block('form_widget_simple') }}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block button_widget -%}
+
+    <div class="mt-10 flex justify-center">
+        {%- set attr = attr|merge({class: (attr.class|default('bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'))|trim}) -%}
+        {{- parent() -}}
+    </div>
+{%- endblock button_widget %}
+
+
+
+
+
+
+
+
+
 {% block form_label_class -%}
     block text-grey-darker font-bold md:text-right mb-1 md:mb-0 pr-4
 {% endblock form_label_class -%}
 
 {% block input_class -%}
-    {% if form.vars.errors|length %}border-red border-1{% endif %} appearance-none bg-grey-lighter border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-blue-light
+    {% if form.vars.errors|length %}border-red border-1{% endif %} appearance-none bg-grey-lighter border-2 border-grey-lighter rounded w-full py-2 px-8 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-blue-light
 {% endblock input_class -%}
 
 {% block form_group_class -%}
