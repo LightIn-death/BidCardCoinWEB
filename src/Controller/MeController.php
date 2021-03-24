@@ -50,31 +50,6 @@ class MeController extends AbstractController
     }
 
 
-    /**
-     * @Route("/new", name="me_add_object", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-
-        $lot =new Lot();
-        $form = $this->createForm(NewLotType::class,$lot);
-
-
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($lot);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('produit_index');
-        }
-
-        return $this->render('produit/new.html.twig', [
-            'form' => $form
-        ]);
-    }
 
 
 

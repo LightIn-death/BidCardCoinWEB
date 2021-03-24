@@ -20,10 +20,12 @@ class NewLotType extends AbstractType
                 // each entry in the array will be an "email" field
                 'entry_type' => ProduitType::class,
                 'allow_add' => true,
+                'allow_delete' => true,
+                'prototype' => true,
+                'by_reference' => false,
+
                 // these options are passed to each "email" type
-                'entry_options' => [
-                    'attr' => ['class' => 'email-box'],
-                ]])
+                ])
         ;
     }
 
