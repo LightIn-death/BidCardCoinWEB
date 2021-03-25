@@ -68,6 +68,11 @@ class Produit
      */
     private $IsSend;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photoUrl;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -189,6 +194,18 @@ class Produit
     public function setIsSend(bool $IsSend): self
     {
         $this->IsSend = $IsSend;
+
+        return $this;
+    }
+
+    public function getPhotoUrl(): ?string
+    {
+        return $this->photoUrl;
+    }
+
+    public function setPhotoUrl(?string $photoUrl): self
+    {
+        $this->photoUrl = $photoUrl;
 
         return $this;
     }

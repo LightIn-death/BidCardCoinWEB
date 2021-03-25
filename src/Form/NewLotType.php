@@ -18,7 +18,7 @@ class NewLotType extends AbstractType
             ->add('Description')
             ->add('Produits',  CollectionType::class, [
                 // each entry in the array will be an "email" field
-                'entry_type' => ProduitType::class,
+                'entry_type' => NewProduitType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,

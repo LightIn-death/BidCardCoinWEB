@@ -18,8 +18,14 @@ class MainController extends AbstractController
      */
     public function index(): Response
     {
+
+        $Products =  $this->getDoctrine()->getRepository(Produit::class)->findAll();
+
+
+
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
+            'products' => $Products
         ]);
     }
 
@@ -30,7 +36,7 @@ class MainController extends AbstractController
     public function new(Request $request): Response
     {
 
-        $lot =new Lot();
+        $lot = new Lot();
 
 
 
@@ -43,10 +49,15 @@ class MainController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($lot);
+            $entityManager->flush();
             foreach ($lot->getProduits() as $produit){
-                  $entityManager->persist($produit);
-            }
 
+                $produit->setVendeur( $this->getUser());
+                $produit->setLot($this->getDoctrine()->getManager()->getRepository(Lot::class)->find($lot->getId()));
+                $produit->setIsSend(false);
+                $produit->setPhotoUrl("https://source.unsplash.com/1600x900/?technologie");
+                $entityManager->persist($produit);
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('produit_index');

@@ -231,4 +231,9 @@ class Adresse
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return strtoupper($this->AdresseNumber . ' ' . $this->Ville . ' '. $this->CodePostal .' '. $this->Pays ) ;
+    }
 }

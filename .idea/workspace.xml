@@ -20,10 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210325152931.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/NewProduitType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Adresse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Adresse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Produit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/NewLotType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/NewLotType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/me/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/me/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +214,7 @@
       <workItem from="1616138679619" duration="10282000" />
       <workItem from="1616594739526" duration="587000" />
       <workItem from="1616595458661" duration="13053000" />
-      <workItem from="1616673934938" duration="2282000" />
+      <workItem from="1616673934938" duration="9659000" />
     </task>
     <servers />
   </component>

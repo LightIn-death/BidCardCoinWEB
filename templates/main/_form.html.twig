@@ -5,6 +5,7 @@
     {{ form_errors(form) }}
     {{ form_row(form.Nom) }}
     {{ form_row(form.Description) }}
+    {{ form_row(form._token) }}
 
 
 <div class="row js-product-wrapper mb-6 border-2 border-gray-300 rounded-lg w-full p-4"
@@ -51,7 +52,7 @@
 </div>
 
 
-<button class="btn">{{ button_label|default('Save') }}</button>
+<button class="btn m-8 text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-white hover:bg-black  cursor-pointer ">{{ button_label|default('Save') }}</button>
 </form>
 
 {% block javascripts %}
