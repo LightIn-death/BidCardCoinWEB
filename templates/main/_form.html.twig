@@ -1,13 +1,16 @@
 {{ form_start(form) }}
 
-{{ form_widget(form.Nom) }}
-{{ form_widget(form.Description) }}
 
-<div class="row js-genus-scientist-wrapper"
+
+    {{ form_errors(form) }}
+    {{ form_row(form.Nom) }}
+    {{ form_row(form.Description) }}
+
+
+<div class="row js-product-wrapper mb-6 border-2 border-gray-300 rounded-lg w-full p-4"
      data-prototype="{{ form_widget(form.Produits.vars.prototype)|e('html_attr') }}"
      data-index="{{ form.Produits|length }}">
-
-
+    <h3 class="text-grey-darker font-bold  mb-10  pr-4">Produit</h3>
 
     {% for ProductForm in form.Produits %}
 
@@ -16,19 +19,23 @@
             <a href="#" class="js-remove-scientist pull-right">
                 <span class="fa fa-close"></span>
             </a>
-            {{ form_widget(ProductForm.NomAuteur) }}
-            {{ form_widget(ProductForm.NomStyle) }}
-            {{ form_widget(ProductForm.PrixReserve) }}
-            {{ form_widget(ProductForm.ReferenceCatalogue) }}
-            {{ form_widget(ProductForm.Description) }}
-            {{ form_widget(ProductForm.IsSend) }}
-            {{ form_widget(ProductForm.Lot) }}
-            {{ form_widget(ProductForm.Vendeur) }}
-            {{ form_widget(ProductForm.EnchereGagnante) }}
-            {{ form_widget(ProductForm.Categorie) }}
+
+            <div class="col-xs-4 js-genus-scientist-item">
+                <a href="#" class="js-remove-scientist pull-right">
+                    <span class="fa fa-close"></span>
+                </a>
+                {{ form_errors(ProductForm) }}
 
 
 
+                {{ form_row(ProductForm.NomAuteur) }}
+                {{ form_row(ProductForm.NomStyle) }}
+                {{ form_row(ProductForm.PrixReserve) }}
+                {{ form_row(ProductForm.Description) }}
+                {{ form_row(ProductForm.Categorie) }}
+
+
+            </div>
 
 
         </div>
@@ -38,46 +45,42 @@
     {% endfor %}
 
 
-    <div class="row js-genus-scientist-wrapper">
-        <a href="#" class="js-product-add">
-            <span class="fa fa-plus-circle"></span>
-            Add Another Scientist
-        </a>
-    </div>
+    <a class="js-product-add mt-8 text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-white hover:bg-black  cursor-pointer ">
+        ajouter un produit au lot
+    </a>
+</div>
 
 
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<button class="btn">{{ button_label|default('Save') }}</button>
+</form>
+
+{% block javascripts %}
+
+    <script>
+        jQuery(document).ready(function () {
+            const $wrapper = $('.js-product-wrapper');
 
 
-
-
-
-
-
-    {% block javascripts %}
-
-        <script>
-            jQuery(document).ready(function () {
+            $('.js-product-add').click(function (e) {
                 console.log("TEST");
-                const $wrapper = $('.js-product-add');
-                $wrapper.on('click', '.js-product-add', function (e) {
-                    console.log("TEST");
-                    e.preventDefault();
-                    // Get the data-prototype explained earlier
-                    var prototype = $wrapper.data('prototype');
-                    // get the new index
-                    var index = $wrapper.data('index');
-                    // Replace '__name__' in the prototype's HTML to
-                    // instead be a number based on how many items we have
-                    var newForm = prototype.replace(/__name__/g, index);
-                    // increase the index with one for the next item
-                    $wrapper.data('index', index + 1);
-                    // Display the form in the page before the "new" link
-                    $(this).before(newForm);
-                });
+                e.preventDefault();
+                // Get the data-prototype explained earlier
+                var prototype = $wrapper.data('prototype');
+                // get the new index
+                var index = $wrapper.data('index');
+                // Replace '__name__' in the prototype's HTML to
+                // instead be a number based on how many items we have
+                var newForm = prototype.replace(/__name__/g, index);
+                // increase the index with one for the next item
+                $wrapper.data('index', index + 1);
+                // Display the form in the page before the "new" link
+                $(this).before(newForm);
             });
-        </script>
 
-    {% endblock %}
 
-    {{ form_end(form) }}
+        });
+    </script>
+
+{% endblock %}
+
+

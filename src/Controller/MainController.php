@@ -31,7 +31,7 @@ class MainController extends AbstractController
     {
 
         $lot =new Lot();
-        $lot->addProduit(new Produit());
+
 
 
         $form = $this->createForm(NewLotType::class,$lot);
@@ -43,6 +43,10 @@ class MainController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($lot);
+            foreach ($lot->getProduits() as $produit){
+                  $entityManager->persist($produit);
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('produit_index');
