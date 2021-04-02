@@ -43,7 +43,7 @@ class MeController extends AbstractController
             return $this->redirectToRoute('user_index');
         }
 
-        return $this->render('me/edit.html.twig', [
+        return $this->render('me/profile_edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);

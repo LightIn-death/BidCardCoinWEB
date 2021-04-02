@@ -19,7 +19,7 @@ class MainController extends AbstractController
     {
 
 
-        $Lots = $this->getDoctrine()->getRepository(Lot::class)->find10lots(0);
+        $Lots = $this->getDoctrine()->getRepository(Lot::class)->findBy( [], $orderBy = null, $limit = 10, $offset =0);
 
 
         return $this->render('main/index.html.twig', [
@@ -35,7 +35,7 @@ class MainController extends AbstractController
     {
 
 
-        $Lots = $this->getDoctrine()->getRepository(Lot::class)->find10lots($page);
+        $Lots = $this->getDoctrine()->getRepository(Lot::class)->findBy( [], $orderBy = null, $limit = 10, $offset = $page);
 
 
         return $this->render('main/index.html.twig', [
@@ -80,4 +80,34 @@ class MainController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+
+
+    /**
+     * @Route("/view/{id}", name="view_id", methods={"GET","POST"})
+     */
+    public function view($id): Response
+    {
+
+
+        $Lot = $this->getDoctrine()->getRepository(Lot::class)->find($id);
+
+
+        return $this->render('main/view.html.twig', [
+            'lot' => $Lot
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
