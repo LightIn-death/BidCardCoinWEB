@@ -7,14 +7,22 @@
     {{ dump(lot) }}
 
 
-    <h2 class="mt-6 text-xl">{{lot.Nom }}</h2>
+    <article
+            class="overflow-hidden rounded-lg shadow-lg hover:bg-blue-200 bg-gray-100 mt-6 px-6 py-4 flex justify-between align-center">
 
 
+        <div class="flex flex-col">
+
+            <h2 class="mt-6 text-xl">{{ lot.Nom }}</h2>
+
+            <h3>{{ lot.Description }}</h3>
+        </div>
 
 
-    <article class="overflow-hidden rounded-lg shadow-lg hover:bg-blue-200 bg-gray-100 mt-6 px-6 py-4">
-
-        <h3>{{ lot.Description }}</h3>
+        <a href="{{ path("new_view",{'id':lot.id}) }}"
+           class="bg-blue-500   h-5 rounded-full font-bold text-white  transition duration-300 ease-in-out hover:bg-blue-600 mr-6">
+            Ajouter un ordre d'achat
+        </a>
 
     </article>
 
@@ -23,59 +31,50 @@
     <div class="flex-col flex mt-6 ">
 
 
+        <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
 
+            {% for product in lot.Produits %}
+                <article class="overflow-hidden rounded-lg shadow-lg hover:bg-blue-200 bg-gray-100">
 
+                    <a href="{{ path("view_id", {'id': lot.id}) }}">
+                        <img alt="Placeholder" class="block h-auto w-full" src="{{ product.photoUrl }}">
+                    </a>
 
-
-
-            <a href="{{ path("view_id", {'id': lot.id}) }}" class="overflow-hidden rounded-lg shadow-lg hover:bg-blue-200 bg-gray-100 mt-6 px-6 py-4">
-
-                <h2>Lot : {{ lot.Nom }} ~ {{ lot.Description }}</h2>
-
-            </a>
-
-            <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
-
-                {% for product in lot.Produits %}
-                    <article class="overflow-hidden rounded-lg shadow-lg hover:bg-blue-200 bg-gray-100">
-
-                        <a href="{{ path("view_id", {'id': lot.id}) }}">
-                            <img alt="Placeholder" class="block h-auto w-full" src="{{ product.photoUrl }}">
-                        </a>
-
-                        <header class="flex flex-col justify-between leading-tight p-2 md:p-4 ">
-                            <h1 class="text-lg">
-                                <a class="no-underline hover:underline text-black" href="{{ path("view_id", {'id': lot.id}) }}">
-                                    [{{ product.Categorie.Nom }}] {{ product.NomAuteur }} ~ {{ product.NomStyle }}
-                                </a>
-                            </h1>
-                            <span class="text-gray-600 flex">prix de depart : {{ product.PrixReserve }}€
+                    <header class="flex flex-col justify-between leading-tight p-2 md:p-4 ">
+                        <h1 class="text-lg">
+                            <a class="no-underline hover:underline text-black"
+                               href="{{ path("view_id", {'id': lot.id}) }}">
+                                [{{ product.Categorie.Nom }}] {{ product.NomAuteur }} ~ {{ product.NomStyle }}
+                            </a>
+                        </h1>
+                        <span class="text-gray-600 flex">prix de depart : {{ product.PrixReserve }}€
                       {% if product.PrixReserve  % 3 == 0 %}
                           <span class="inline-block flex align-center mx-4  px-4 justify-center text-sm text-white bg-red-500 rounded"> -{{ product.PrixReserve  * product.PrixReserve  * product.PrixReserve % 60 }}%</span>
                       {% endif %}
                             </span>
-                            <p>{{ product.Description }}</p>
-                        </header>
+                        <p>{{ product.Description }}</p>
+                    </header>
 
 
-                        <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-                            <a class="flex items-center no-underline hover:underline text-black" href="{{ path("view_id", {'id': lot.id}) }}">
-                                <img alt="Placeholder" class="block rounded-full"
-                                     src="https://picsum.photos/32/32/?random">
-                                <p class="ml-2 text-sm">
-                                    {{ product.Vendeur.prenom }} {{ product.Vendeur.nom }}
-                                </p>
-                            </a>
-                            <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
-                                <span class="hidden">Like</span>
-                                <i class="fa fa-heart"></i>
-                            </a>
-{#                            <span>vente le  {{ lot.Vente?.DateDebut?"pas de date de vente" }}</span>#}
-                        </footer>
+                    <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                        <a class="flex items-center no-underline hover:underline text-black"
+                           href="{{ path("view_id", {'id': lot.id}) }}">
+                            <img alt="Placeholder" class="block rounded-full"
+                                 src="https://picsum.photos/32/32/?random">
+                            <p class="ml-2 text-sm">
+                                {{ product.Vendeur.prenom }} {{ product.Vendeur.nom }}
+                            </p>
+                        </a>
+                        <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                            <span class="hidden">Like</span>
+                            <i class="fa fa-heart"></i>
+                        </a>
+                        {# <span>vente le  {{ lot.Vente?.DateDebut?"pas de date de vente" }}</span> #}
+                    </footer>
 
-                    </article>
-                {% endfor %}
-            </div>
+                </article>
+            {% endfor %}
+        </div>
 
     </div>
 

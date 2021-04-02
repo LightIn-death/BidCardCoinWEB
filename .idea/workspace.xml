@@ -20,25 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/main/view.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/me/profile_edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/NewOrderAchatType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/main/view_new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.sync-conflict-20210330-134205-IL3YZFF.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Adresse.sync-conflict-20210330-134140-IL3YZFF.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Lot.sync-conflict-20210330-134156-IL3YZFF.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Produit.sync-conflict-20210330-134201-IL3YZFF.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Vente.sync-conflict-20210330-134215-IL3YZFF.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/NewLotType.sync-conflict-20210330-134214-IL3YZFF.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LotRepository.sync-conflict-20210330-134202-IL3YZFF.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/_form.html.sync-conflict-20210330-134133-IL3YZFF.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/index.html.sync-conflict-20210330-134201-IL3YZFF.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/new.html.sync-conflict-20210330-134211-IL3YZFF.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/me/edit.html.sync-conflict-20210330-134134-IL3YZFF.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/me/index.html.sync-conflict-20210330-134214-IL3YZFF.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/view.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

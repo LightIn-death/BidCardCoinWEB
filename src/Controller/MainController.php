@@ -3,11 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Lot;
+use App\Entity\OrdreAchat;
 use App\Form\NewLotType;
+use App\Form\NewOrderAchatType;
+use App\Form\OrdreAchatType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
+
 
 
 class MainController extends AbstractController
@@ -35,7 +40,7 @@ class MainController extends AbstractController
     {
 
 
-        $Lots = $this->getDoctrine()->getRepository(Lot::class)->findBy( [], $orderBy = null, $limit = 10, $offset = $page);
+        $Lots = $this->getDoctrine()->getRepository(Lot::class)->findBy( [], $orderBy = null, $limit = 10, $offset = $page * 10);
 
 
         return $this->render('main/index.html.twig', [
@@ -102,7 +107,33 @@ class MainController extends AbstractController
 
 
 
+    /**
+     * @Route("/view/{id}/new", name="new_view", methods={"GET","POST"})
+     */
+    public function new_view(Request $request,$id): Response
+    {
 
+        $Lot = $this->getDoctrine()->getRepository(Lot::class)->find($id);
+
+        $ordreAchat = new OrdreAchat();
+        $form = $this->createForm(NewOrderAchatType::class, $ordreAchat);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($ordreAchat);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('ordre_achat_index');
+        }
+
+
+
+        return $this->render('main/view_new.html.twig', [
+            'ordre_achat' => $ordreAchat,
+            'form' => $form->createView(),
+        ]);
+    }
 
 
 
