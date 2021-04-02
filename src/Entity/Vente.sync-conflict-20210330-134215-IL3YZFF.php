@@ -97,12 +97,4 @@ class Vente
 
         return $this;
     }
-
-    public function __toString(): string
-    {
-        return strtoupper($this->DateDebut->format('d-m-Y H:i:s')) ;
-    }
-
-
-
 }

@@ -19,23 +19,22 @@ class LotRepository extends ServiceEntityRepository
         parent::__construct($registry, Lot::class);
     }
 
-    /**
-      * @return Lot[] Returns an array of Lot objects
-     */
-
-    public function find10lots($page)
+    // /**
+    //  * @return Lot[] Returns an array of Lot objects
+    //  */
+    /*
+    public function findByExampleField($value)
     {
         return $this->createQueryBuilder('l')
-            ->orderBy('l.id', 'Desc')
-            ->where('l.id > :idMin ')
-            ->setParameter('idMin',3 * ($page -1))
-//            ->setParameter('null',null)
-            ->setMaxResults(3)
+            ->andWhere('l.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('l.id', 'ASC')
+            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-
+    */
 
     /*
     public function findOneBySomeField($value): ?Lot

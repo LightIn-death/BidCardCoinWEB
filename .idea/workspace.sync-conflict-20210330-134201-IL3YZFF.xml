@@ -20,13 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BidCardCoin_v1_3.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/main/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/main/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Vente.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Vente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LotRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LotRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/me/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/me/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/NewLotType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/NewLotType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,11 +209,6 @@
       <workItem from="1616138679619" duration="10282000" />
       <workItem from="1616594739526" duration="587000" />
       <workItem from="1616595458661" duration="13053000" />
-      <workItem from="1616673934938" duration="9659000" />
-      <workItem from="1616706399595" duration="84000" />
-      <workItem from="1616745301110" duration="2918000" />
-      <workItem from="1616750542416" duration="631000" />
-      <workItem from="1616751194798" duration="6869000" />
     </task>
     <servers />
   </component>
