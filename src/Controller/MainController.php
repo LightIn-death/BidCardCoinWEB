@@ -24,12 +24,22 @@ class MainController extends AbstractController
     {
 
 
-        $Lots = $this->getDoctrine()->getRepository(Lot::class)->findBy( [], $orderBy = null, $limit = 10, $offset =0);
+        $LotsData = $this->getDoctrine()->getRepository(Lot::class)->findBy( [], $orderBy = null, $limit = 10, $offset =0);
 
+        $Lots = [];
+        /* @var $l Lot */
+        foreach($LotsData as $l  ){
+            if (!is_null($l->getVente())){
+                array_push ($Lots,$l);
+            }
+        }
+
+       $v = $Lots[0]->getVente();
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
-            'Lots' => $Lots
+            'Lots' => $Lots,
+            'v'=> $v
         ]);
     }
 

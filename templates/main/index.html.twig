@@ -9,6 +9,9 @@
 
     <h2 class="mt-6 text-xl">A la Une</h2>
 
+    {{ dump(v) }}
+
+
 
     <!-- Start Content -->
     <div class="flex-col flex mt-6 ">
@@ -21,7 +24,7 @@
 
             <a href="{{ path("view_id", {'id': lot.id}) }}" class="overflow-hidden rounded-lg shadow-lg hover:bg-blue-200 bg-gray-100 mt-6 px-6 py-4">
 
-                <h2>Lot : {{ lot.Nom }} ~ {{ lot.Description }}</h2>
+                <h2>Lot : {{ lot.Nom }} ~ {{ lot.Description }} || {{ lot.vente.DateDebut |date("d/m/Y")}} || {{  lot.vente.Adresse }}</h2>
 
             </a>
 
