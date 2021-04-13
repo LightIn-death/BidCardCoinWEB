@@ -20,12 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/NewOrderAchatType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/main/view_new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.sync-conflict-20210330-134201-IL3YZFF.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/NewOrderAchatType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/NewOrderAchatType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/view.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/view_new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/view_new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +167,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/me" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -180,7 +180,6 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Breval Nouveau\Desktop\playground\BidCardCoinWEB\templates\main" />
       <recent name="C:\Users\Breval Nouveau\Desktop\playground\BidCardCoinWEB\templates\me" />
       <recent name="C:\Users\Breval Nouveau\Desktop\BidCardCoinWEB\public\ressources" />
       <recent name="C:\Users\Breval Nouveau\Desktop\BidCardCoinWEB\templates\security" />
@@ -209,11 +208,9 @@
       <workItem from="1616138679619" duration="10282000" />
       <workItem from="1616594739526" duration="587000" />
       <workItem from="1616595458661" duration="13053000" />
-      <workItem from="1616673934938" duration="9659000" />
-      <workItem from="1616706399595" duration="84000" />
-      <workItem from="1616745301110" duration="2918000" />
-      <workItem from="1616750542416" duration="631000" />
-      <workItem from="1616751194798" duration="6869000" />
+      <workItem from="1617883390306" duration="3449000" />
+      <workItem from="1618346816024" duration="897000" />
+      <workItem from="1618347873859" duration="2057000" />
     </task>
     <servers />
   </component>

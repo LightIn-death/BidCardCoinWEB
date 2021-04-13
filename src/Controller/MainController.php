@@ -7,11 +7,11 @@ use App\Entity\OrdreAchat;
 use App\Form\NewLotType;
 use App\Form\NewOrderAchatType;
 use App\Form\OrdreAchatType;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 
 
 
@@ -96,10 +96,18 @@ class MainController extends AbstractController
 
 
         $Lot = $this->getDoctrine()->getRepository(Lot::class)->find($id);
+        $OrdreAchat = $this->getDoctrine()->getRepository(OrdreAchat::class)->findby(
+            [
+            'Utilistateur' => $this->getUser(),
+            'Lot' => $Lot
+            ]
+        );
+
 
 
         return $this->render('main/view.html.twig', [
-            'lot' => $Lot
+            'lot' => $Lot,
+            'oa' => $OrdreAchat,
         ]);
     }
 
@@ -121,6 +129,11 @@ class MainController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $ordreAchat->setLot($Lot);
+            $ordreAchat->setAutomatique(true);
+            $ordreAchat->setDate(new DateTime('NOW'));
+            $ordreAchat->setUtilistateur($this->getUser());
             $entityManager->persist($ordreAchat);
             $entityManager->flush();
 
@@ -135,6 +148,31 @@ class MainController extends AbstractController
         ]);
     }
 
+
+
+
+
+
+    /**
+     * @Route("/view/{id}/edit", name="modify_view", methods={"GET","POST"})
+     */
+    public function modify_view(Request $request,OrdreAchat $ordreAchat): Response
+    {
+
+        $form = $this->createForm(NewOrderAchatType::class, $ordreAchat);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('ordre_achat_index');
+        }
+
+        return $this->render('ordre_achat/edit.html.twig', [
+            'ordre_achat' => $ordreAchat,
+            'form' => $form->createView(),
+        ]);
+    }
 
 
 

@@ -5,6 +5,10 @@
 
 
     {{ dump(lot) }}
+    {{ dump(oa) }}
+
+
+
 
 
     <article
@@ -18,11 +22,28 @@
             <h3>{{ lot.Description }}</h3>
         </div>
 
+        {% if oa  is not empty %}
 
-        <a href="{{ path("new_view",{'id':lot.id}) }}"
-           class="bg-blue-500   h-5 rounded-full font-bold text-white  transition duration-300 ease-in-out hover:bg-blue-600 mr-6">
-            Ajouter un ordre d'achat
-        </a>
+            <a href="{{ path("modify_view",{'id':oa[0].id}) }}"
+               class="bg-blue-500   h-5 rounded-full font-bold text-white  transition duration-300 ease-in-out hover:bg-blue-600 mr-6">
+               Modifier l'ordre d'achat
+            </a>
+
+
+
+        {% else %}
+
+            <a href="{{ path("new_view",{'id':lot.id}) }}"
+               class="bg-blue-500   h-5 rounded-full font-bold text-white  transition duration-300 ease-in-out hover:bg-blue-600 mr-6">
+                Ajouter un ordre d'achat
+            </a>
+
+
+        {% endif %}
+
+
+
+
 
     </article>
 
