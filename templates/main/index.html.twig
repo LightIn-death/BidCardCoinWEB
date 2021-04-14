@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+{#    {{ dump(Lots) }}#}
+
+
+    <h2 class="mt-6 text-xl">A la Une</h2>
+
+    {{ dump(v) }}
+
+
+
+    <!-- Start Content -->
+    <div class="flex-col flex mt-6 ">
+
+
+
+        {% for lot in Lots %}
+
+
+
+            <a href="{{ path("view_id", {'id': lot.id}) }}" class="overflow-hidden rounded-lg shadow-lg hover:bg-blue-200 bg-gray-100 mt-6 px-6 py-4">
+
+                <h2>Lot : {{ lot.Nom }} ~ {{ lot.Description }} || {{ lot.vente.DateDebut |date("d/m/Y")}} || {{  lot.vente.Adresse }}</h2>
+
+            </a>
+
+            <div class="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
+
+                {% for product in lot.Produits %}
+                    <article class="overflow-hidden rounded-lg shadow-lg hover:bg-blue-200 bg-gray-100">
+
+                        <a href="{{ path("view_id", {'id': lot.id}) }}">
+                            <img alt="Placeholder" class="block h-auto w-full" src="{{ product.photoUrl }}">
+                        </a>
+
+                        <header class="flex flex-col justify-between leading-tight p-2 md:p-4 ">
+                            <h1 class="text-lg">
+                                <a class="no-underline hover:underline text-black" href="{{ path("view_id", {'id': lot.id}) }}">
+                                    [{{ product.Categorie.Nom }}] {{ product.NomAuteur }} ~ {{ product.NomStyle }}
+                                </a>
+                            </h1>
+                            <span class="text-gray-600 flex">prix de depart : {{ product.PrixReserve }}€
+                      {% if product.PrixReserve  % 3 == 0 %}
+                          <span class="inline-block flex align-center mx-4  px-4 justify-center text-sm text-white bg-red-500 rounded"> -{{ product.PrixReserve  * product.PrixReserve  * product.PrixReserve % 60 }}%</span>
+                      {% endif %}
+                            </span>
+                            <p>{{ product.Description }}</p>
+                        </header>
+
+
+                        <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                            <a class="flex items-center no-underline hover:underline text-black" href="{{ path("view_id", {'id': lot.id}) }}">
+                                <img alt="Placeholder" class="block rounded-full"
+                                     src="https://picsum.photos/32/32/?random">
+                                <p class="ml-2 text-sm">
+                                    {{ product.Vendeur.prenom }} {{ product.Vendeur.nom }}
+                                </p>
+                            </a>
+                            <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                                <span class="hidden">Like</span>
+                                <i class="fa fa-heart"></i>
+                            </a>
+{#                            <span>vente le  {{ lot.Vente?.DateDebut?"pas de date de vente" }}</span>#}
+                        </footer>
+
+                    </article>
+                {% endfor %}
+            </div>
+
+        {% endfor %}
+
+
+    </div>
+
+
+
+    <div class="sticky bottom-0 right-0 w-auto flex justify-end align-center ">
+
+        <a class="bg-blue-500 rounded-lg w-20 h-20  flex justify-begin align-begin cursor-pointer"
+           href="{{ path("me_add_object") }}">
+
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                 width="inherit" height="inherit" viewBox="0 0  300 300" trandform-origin="center">
+                <g>
+                    <g>
+                        <path d="M0.006,152.45c0,20.344,16.546,36.893,36.894,36.893h78.669v78.663c0,20.345,16.546,36.894,36.893,36.894
+			c20.351,0,36.894-16.549,36.894-36.894v-78.663H268c20.345,0,36.894-16.549,36.894-36.893c0-20.348-16.549-36.894-36.894-36.894
+			h-78.645V36.894C189.355,16.546,172.812,0,152.462,0c-20.347,0-36.893,16.546-36.893,36.894v78.663H36.9
+			C16.553,115.557,0.006,132.103,0.006,152.45z M121.718,127.854c3.401,0,6.149-2.756,6.149-6.149V36.894
+			c0-13.564,11.031-24.596,24.595-24.596c13.565,0,24.596,11.031,24.596,24.596v84.812c0,3.393,2.75,6.149,6.149,6.149H268
+			c13.565,0,24.596,11.03,24.596,24.596c0,13.564-11.03,24.596-24.596,24.596h-84.793c-3.399,0-6.149,2.756-6.149,6.148v84.812
+			c0,13.565-11.03,24.596-24.596,24.596c-13.564,0-24.595-11.03-24.595-24.596v-84.812c0-3.393-2.748-6.148-6.149-6.148H36.9
+			c-13.565,0-24.596-11.031-24.596-24.596c0-13.565,11.031-24.596,24.596-24.596H121.718z"/>
+                    </g>
+                </g>
+
+            </svg>
+
+        </a>
+
+    </div>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer Lot{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau lot</h1>
+
+
+    {{ include('main/_form.html.twig') }}
+
+    <a href="{{ path('main') }}" class="m-8 text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-white hover:bg-black  cursor-pointer ">back</a>
+
+{% endblock %}

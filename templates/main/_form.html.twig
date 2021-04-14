@@ -1,0 +1,87 @@
+{{ form_start(form) }}
+
+
+
+    {{ form_errors(form) }}
+    {{ form_row(form.Nom) }}
+    {{ form_row(form.Description) }}
+    {{ form_row(form._token) }}
+
+
+<div class="row js-product-wrapper mb-6 border-2 border-gray-300 rounded-lg w-full p-4"
+     data-prototype="{{ form_widget(form.Produits.vars.prototype)|e('html_attr') }}"
+     data-index="{{ form.Produits|length }}">
+    <h3 class="text-grey-darker font-bold  mb-10  pr-4">Produit</h3>
+
+    {% for ProductForm in form.Produits %}
+
+
+        <div class="col-xs-4 js-genus-scientist-item">
+            <a href="#" class="js-remove-scientist pull-right">
+                <span class="fa fa-close"></span>
+            </a>
+
+            <div class="col-xs-4 js-genus-scientist-item">
+                <a href="#" class="js-remove-scientist pull-right">
+                    <span class="fa fa-close"></span>
+                </a>
+                {{ form_errors(ProductForm) }}
+
+
+
+                {{ form_row(ProductForm.NomAuteur) }}
+                {{ form_row(ProductForm.NomStyle) }}
+                {{ form_row(ProductForm.PrixReserve) }}
+                {{ form_row(ProductForm.Description) }}
+                {{ form_row(ProductForm.Categorie) }}
+
+
+            </div>
+
+
+        </div>
+
+
+
+    {% endfor %}
+
+
+    <a class="js-product-add mt-8 text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-white hover:bg-black  cursor-pointer ">
+        ajouter un produit au lot
+    </a>
+</div>
+
+
+<button class="btn m-8 text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-white hover:bg-black  cursor-pointer ">{{ button_label|default('Save') }}</button>
+</form>
+
+{% block javascripts %}
+
+    <script>
+        jQuery(document).ready(function () {
+            const $wrapper = $('.js-product-wrapper');
+
+
+            $('.js-product-add').click(function (e) {
+                console.log("TEST");
+                e.preventDefault();
+                // Get the data-prototype explained earlier
+                var prototype = $wrapper.data('prototype');
+                // get the new index
+                var index = $wrapper.data('index');
+                // Replace '__name__' in the prototype's HTML to
+                // instead be a number based on how many items we have
+                var newForm = prototype.replace(/__name__/g, index);
+                // increase the index with one for the next item
+                $wrapper.data('index', index + 1);
+                // Display the form in the page before the "new" link
+                $(this).before(newForm);
+            });
+
+
+        });
+    </script>
+
+{% endblock %}
+
+

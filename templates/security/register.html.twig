@@ -1,0 +1,166 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+
+
+    <!-- Container -->
+    <div class="container mx-auto">
+
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+
+
+        <div class="flex justify-center px-6 my-12">
+            <!-- Row -->
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                <!-- Col -->
+                <div
+                        class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+                        style="background-image: url('https://images.unsplash.com/photo-1552728089-57bdde30beb3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80')"
+                ></div>
+                <!-- Col -->
+                <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <div class="px-8 mb-4 text-center">
+                        <h3 class="pt-4 mb-2 text-2xl">Want to join us? Create an account !</h3>
+                        <p class="mb-4 text-sm text-gray-700">
+                            We get it, stuff happens. Just enter your email address below and we'll send you a
+                            link to reset your password!
+                        </p>
+                    </div>
+                    <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" method="post" name="registration_form">
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="registration_form_email">
+                                Email
+                            </label>
+                            <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="registration_form_email"
+                                    name="registration_form[email]"
+                                    type="email"
+                                    placeholder="Enter Email Address..."
+                                    required="required"
+                            />
+
+                        </div>
+
+
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="registration_form_plainPassword">
+                                Password
+                            </label>
+                            <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="registration_form_plainPassword"
+                                    name="registration_form[plainPassword]"
+                                    type="password"
+                                    placeholder="Enter Password..."
+                                    required="required"
+                            />
+                        </div>
+
+
+
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="registration_form_lastname">
+                             Nom
+                            </label>
+                            <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="registration_form_lastname"
+                                    name="lastname"
+                                    type="text"
+                                    placeholder="Enter Your Name.."
+                                    required="required"
+                            />
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="registration_form_firstname">
+                               Prenom
+                            </label>
+                            <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="registration_form_firstname"
+                                    name="firstname"
+                                    type="text"
+                                    placeholder="Enter Your Firstname"
+                                    required="required"
+                            />
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="registration_form_age">
+                             Age
+                            </label>
+                            <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="registration_form_age"
+                                    name="age"
+                                    type="number"
+                                    placeholder="20"
+                                    required="required"
+                            />
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="registration_form_phone">
+                                Numero de Telephone
+                            </label>
+                            <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="registration_form_phone"
+                                    name="phone"
+                                    type="text"
+                                    placeholder="Enter Your Phone Number..."
+                                    required="required"
+                            />
+                        </div>
+
+
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="registration_form_agreeTerms">
+                                Agree terms
+                            </label>
+                            <input
+                                    class=" form-checkbox px-2 py-2  border rounded shadow  focus:outline-none focus:shadow-outline text-sm leading-tight text-gray-700"
+                                    id="registration_form_agreeTerms"
+                                    name="registration_form[agreeTerms]"
+                                    type="checkbox"
+                                    value="1"
+                            />
+                        </div>
+
+
+
+
+                        {{ form_row(registrationForm._token) }}
+
+                        <div class="mb-6 text-center">
+                            <button
+                                    class="w-full px-4 py-2 font-bold text-white bg-green-500 rounded-full hover:bg-green-700 focus:outline-none focus:shadow-outline"
+                                    type="submit"
+                            >
+                                Create Account
+                            </button>
+                        </div>
+                        <hr class="mb-6 border-t"/>
+
+                        <div class="text-center">
+                            <a
+                                    class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                                    href="{{ path("app_login") }}"
+                            >
+                                Already have an account? Login!
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

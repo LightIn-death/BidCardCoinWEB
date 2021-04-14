@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commissaire index{% endblock %}
+
+{% block body %}
+    <h1>Commissaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>TelephoneM</th>
+                <th>TelephoneF</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commissaire in commissaires %}
+            <tr>
+                <td>{{ commissaire.id }}</td>
+                <td>{{ commissaire.Nom }}</td>
+                <td>{{ commissaire.Prenom }}</td>
+                <td>{{ commissaire.Age }}</td>
+                <td>{{ commissaire.Email }}</td>
+                <td>{{ commissaire.TelephoneM }}</td>
+                <td>{{ commissaire.TelephoneF }}</td>
+                <td>
+                    <a href="{{ path('commissaire_show', {'id': commissaire.id}) }}">show</a>
+                    <a href="{{ path('commissaire_edit', {'id': commissaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('commissaire_new') }}">Create new</a>
+{% endblock %}
