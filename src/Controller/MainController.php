@@ -6,13 +6,12 @@ use App\Entity\Lot;
 use App\Entity\OrdreAchat;
 use App\Form\NewLotType;
 use App\Form\NewOrderAchatType;
-use App\Form\OrdreAchatType;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Routing\Annotation\Route;
 
 
 class MainController extends AbstractController
@@ -24,22 +23,22 @@ class MainController extends AbstractController
     {
 
 
-        $LotsData = $this->getDoctrine()->getRepository(Lot::class)->findBy( [], $orderBy = null, $limit = 10, $offset =0);
+        $LotsData = $this->getDoctrine()->getRepository(Lot::class)->findBy([], $orderBy = null, $limit = 10, $offset = 0);
 
         $Lots = [];
         /* @var $l Lot */
-        foreach($LotsData as $l  ){
-            if (!is_null($l->getVente())){
-                array_push ($Lots,$l);
+        foreach ($LotsData as $l) {
+            if (!is_null($l->getVente())) {
+                array_push($Lots, $l);
             }
         }
 
-       $v = $Lots[0]->getVente();
+        $v = $Lots[0]->getVente();
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
             'Lots' => $Lots,
-            'v'=> $v
+            'v' => $v
         ]);
     }
 
@@ -50,7 +49,7 @@ class MainController extends AbstractController
     {
 
 
-        $Lots = $this->getDoctrine()->getRepository(Lot::class)->findBy( [], $orderBy = null, $limit = 10, $offset = $page * 10);
+        $Lots = $this->getDoctrine()->getRepository(Lot::class)->findBy([], $orderBy = null, $limit = 10, $offset = $page * 10);
 
 
         return $this->render('main/index.html.twig', [
@@ -60,12 +59,13 @@ class MainController extends AbstractController
     }
 
 
-
     /**
      * @Route("/new", name="me_add_object", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
 
         $lot = new Lot();
 
@@ -88,7 +88,7 @@ class MainController extends AbstractController
             }
             $entityManager->flush();
 
-            return $this->redirectToRoute('produit_index');
+            return $this->redirectToRoute('main');
         }
 
         return $this->render('main/new.html.twig', [
@@ -97,22 +97,21 @@ class MainController extends AbstractController
     }
 
 
-
     /**
      * @Route("/view/{id}", name="view_id", methods={"GET","POST"})
      */
     public function view($id): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
 
         $Lot = $this->getDoctrine()->getRepository(Lot::class)->find($id);
         $OrdreAchat = $this->getDoctrine()->getRepository(OrdreAchat::class)->findby(
             [
-            'Utilistateur' => $this->getUser(),
-            'Lot' => $Lot
+                'Utilistateur' => $this->getUser(),
+                'Lot' => $Lot
             ]
         );
-
 
 
         return $this->render('main/view.html.twig', [
@@ -122,14 +121,14 @@ class MainController extends AbstractController
     }
 
 
-
-
-
     /**
      * @Route("/view/{id}/new", name="new_view", methods={"GET","POST"})
      */
-    public function new_view(Request $request,$id): Response
+    public function new_view(Request $request, $id): Response
     {
+
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
 
         $Lot = $this->getDoctrine()->getRepository(Lot::class)->find($id);
 
@@ -147,9 +146,8 @@ class MainController extends AbstractController
             $entityManager->persist($ordreAchat);
             $entityManager->flush();
 
-            return $this->redirectToRoute('ordre_achat_index');
+            return $this->redirectToRoute('view_id', ["id" => $id]);
         }
-
 
 
         return $this->render('main/view_new.html.twig', [
@@ -159,15 +157,15 @@ class MainController extends AbstractController
     }
 
 
-
-
-
-
     /**
      * @Route("/view/{id}/edit", name="modify_view", methods={"GET","POST"})
      */
-    public function modify_view(Request $request,OrdreAchat $ordreAchat): Response
+    public function modify_view(Request $request, OrdreAchat $ordreAchat): Response
     {
+
+
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
 
         $form = $this->createForm(NewOrderAchatType::class, $ordreAchat);
         $form->handleRequest($request);
@@ -175,7 +173,7 @@ class MainController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ordre_achat_index');
+            return $this->redirectToRoute('main');
         }
 
         return $this->render('ordre_achat/edit.html.twig', [
@@ -183,10 +181,6 @@ class MainController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
-
-
 
 
 }

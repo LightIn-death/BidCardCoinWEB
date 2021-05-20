@@ -1,0 +1,204 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Adresses</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les adresses
+                </p>
+                <a href="{{ path('adresse_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Adresses</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Categories</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les categories
+                </p>
+                <a href="{{ path('categorie_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Categories</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Commissaire Priseur</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les commissaires priseurs
+                </p>
+                <a href="{{ path('commissaire_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Commissaires Priseurs</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Encheres</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les encheres
+                </p>
+                <a href="{{ path('enchere_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Encheres</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Lots</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les lots
+                </p>
+                <a href="{{ path('lot_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Lots</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Ordres Achats</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les ordres d'achats
+                </p>
+                <a href="{{ path('ordre_achat_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Ordres Achats</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Paiements</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les paiements
+                </p>
+                <a href="{{ path('paiement_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Paiements</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Produits</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les produits
+                </p>
+                <a href="{{ path('produit_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Produits</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Stocks</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les stocks
+                </p>
+                <a href="{{ path('stock_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Stocks</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Utilisateurs</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les utilisateurs
+                </p>
+                <a href="{{ path('user_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Utilisateurs</a>
+            </div>
+        </div>
+
+
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Ventes</div>
+                <p class="text-gray-700 text-base my-5">
+                    modifier et gerer les ventes
+                </p>
+
+                <a href="{{ path('vente_index') }}"
+                   class="border-2 border-blue-500 rounded-lg px-3 py-2 text-blue-500 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                    Ventes</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

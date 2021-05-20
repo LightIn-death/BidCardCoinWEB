@@ -20,6 +20,7 @@ class AdresseController extends AbstractController
      */
     public function index(AdresseRepository $adresseRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('adresse/index.html.twig', [
             'adresses' => $adresseRepository->findAll(),
         ]);
@@ -30,6 +31,7 @@ class AdresseController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $adresse = new Adresse();
         $form = $this->createForm(AdresseType::class, $adresse);
         $form->handleRequest($request);
@@ -53,6 +55,7 @@ class AdresseController extends AbstractController
      */
     public function show(Adresse $adresse): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('adresse/show.html.twig', [
             'adresse' => $adresse,
         ]);
@@ -63,6 +66,8 @@ class AdresseController extends AbstractController
      */
     public function edit(Request $request, Adresse $adresse): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $form = $this->createForm(AdresseType::class, $adresse);
         $form->handleRequest($request);
 
@@ -83,6 +88,8 @@ class AdresseController extends AbstractController
      */
     public function delete(Request $request, Adresse $adresse): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         if ($this->isCsrfTokenValid('delete'.$adresse->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($adresse);

@@ -11,7 +11,6 @@
         <div class="flex justify-between my-10 rounded-xl bg-gray-100   shadow-md p-16">
 
 
-
             <img src="https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png" alt="user image"
                  class="w-100 h-auto hidden lg:block lg:w-1/6 bg-cover rounded-xl">
 
@@ -29,6 +28,18 @@
                    class="bg-blue-500  my-2 rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600 mr-6">
                     Edit Profile
                 </a>
+
+
+                {% if is_granted('ROLE_ADMIN') %}
+
+
+                    <a href="{{ path("admin") }}"
+                       class="bg-blue-500  my-2 rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600 mr-6">
+                        Admin panel
+                    </a>
+
+
+                {% endif %}
 
 
                 <a class="bg-red-500  flex justify-center my-2 rounded-full font-bold text-white px-4 py-3 align-center transition duration-300 ease-in-out hover:bg-red-600 mr-6"
@@ -241,4 +252,4 @@ Blue : blue-300
 
 
 
-                           #}
+                            #}

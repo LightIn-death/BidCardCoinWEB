@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Lot;
 use App\Entity\Produit;
 use App\Entity\User;
+use App\Form\MeEditType;
 use App\Form\NewLotType;
 use App\Form\ProduitType;
 use App\Form\UserType;
@@ -22,6 +23,9 @@ class MeController extends AbstractController
      */
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+
         return $this->render('me/index.html.twig', [
             'controller_name' => 'MeController',
         ]);
@@ -32,13 +36,19 @@ class MeController extends AbstractController
      */
     public function edit(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+
         $user = $this->getUser();
 
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(MeEditType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
 
             return $this->redirectToRoute('user_index');
         }

@@ -20,9 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/MeEditType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BidCardCoinWEB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BidCardCoinWEB.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdresseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdresseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategorieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CommissaireController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommissaireController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EnchereController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EnchereController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LotController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/OrdreAchatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OrdreAchatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PaiementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaiementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/VenteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VenteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/view.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/me/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/me/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/me/profile_edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/me/profile_edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +169,7 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pFcRTFufkJR2ZqzlFDfY3ktZd0" />
@@ -207,7 +230,9 @@
       <workItem from="1616595458661" duration="13053000" />
       <workItem from="1617883390306" duration="3449000" />
       <workItem from="1618346816024" duration="897000" />
-      <workItem from="1618347873859" duration="3377000" />
+      <workItem from="1618347873859" duration="3977000" />
+      <workItem from="1618918136211" duration="2246000" />
+      <workItem from="1621538503648" duration="5439000" />
     </task>
     <servers />
   </component>

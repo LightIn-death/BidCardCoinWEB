@@ -20,6 +20,10 @@ class StockController extends AbstractController
      */
     public function index(StockRepository $stockRepository): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         return $this->render('stock/index.html.twig', [
             'stocks' => $stockRepository->findAll(),
         ]);
@@ -30,6 +34,10 @@ class StockController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         $stock = new Stock();
         $form = $this->createForm(StockType::class, $stock);
         $form->handleRequest($request);
@@ -53,6 +61,10 @@ class StockController extends AbstractController
      */
     public function show(Stock $stock): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         return $this->render('stock/show.html.twig', [
             'stock' => $stock,
         ]);
@@ -63,6 +75,10 @@ class StockController extends AbstractController
      */
     public function edit(Request $request, Stock $stock): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         $form = $this->createForm(StockType::class, $stock);
         $form->handleRequest($request);
 
@@ -83,6 +99,11 @@ class StockController extends AbstractController
      */
     public function delete(Request $request, Stock $stock): Response
     {
+
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         if ($this->isCsrfTokenValid('delete'.$stock->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($stock);

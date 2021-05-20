@@ -20,6 +20,9 @@ class OrdreAchatController extends AbstractController
      */
     public function index(OrdreAchatRepository $ordreAchatRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         return $this->render('ordre_achat/index.html.twig', [
             'ordre_achats' => $ordreAchatRepository->findAll(),
         ]);
@@ -30,6 +33,11 @@ class OrdreAchatController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
+
         $ordreAchat = new OrdreAchat();
         $form = $this->createForm(OrdreAchatType::class, $ordreAchat);
         $form->handleRequest($request);
@@ -53,6 +61,10 @@ class OrdreAchatController extends AbstractController
      */
     public function show(OrdreAchat $ordreAchat): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         return $this->render('ordre_achat/show.html.twig', [
             'ordre_achat' => $ordreAchat,
         ]);
@@ -63,6 +75,11 @@ class OrdreAchatController extends AbstractController
      */
     public function edit(Request $request, OrdreAchat $ordreAchat): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
+
         $form = $this->createForm(OrdreAchatType::class, $ordreAchat);
         $form->handleRequest($request);
 
@@ -83,6 +100,10 @@ class OrdreAchatController extends AbstractController
      */
     public function delete(Request $request, OrdreAchat $ordreAchat): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         if ($this->isCsrfTokenValid('delete'.$ordreAchat->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($ordreAchat);
