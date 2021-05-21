@@ -33,7 +33,11 @@ class MainController extends AbstractController
             }
         }
 
-        $v = $Lots[0]->getVente();
+        if(!empty($Lots)) {
+            $v = $Lots[0]->getVente();
+        } else {
+            $v = [];
+        }
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
