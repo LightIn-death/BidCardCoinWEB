@@ -30,6 +30,8 @@ class LotController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $lot = new Lot();
         $form = $this->createForm(LotType::class, $lot);
         $form->handleRequest($request);
@@ -53,6 +55,8 @@ class LotController extends AbstractController
      */
     public function show(Lot $lot): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('lot/show.html.twig', [
             'lot' => $lot,
         ]);
@@ -63,6 +67,8 @@ class LotController extends AbstractController
      */
     public function edit(Request $request, Lot $lot): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $form = $this->createForm(LotType::class, $lot);
         $form->handleRequest($request);
 
@@ -83,6 +89,8 @@ class LotController extends AbstractController
      */
     public function delete(Request $request, Lot $lot): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         if ($this->isCsrfTokenValid('delete'.$lot->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($lot);

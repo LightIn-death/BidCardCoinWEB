@@ -20,6 +20,10 @@ class VenteController extends AbstractController
      */
     public function index(VenteRepository $venteRepository): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         return $this->render('vente/index.html.twig', [
             'ventes' => $venteRepository->findAll(),
         ]);
@@ -30,6 +34,10 @@ class VenteController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         $vente = new Vente();
         $form = $this->createForm(VenteType::class, $vente);
         $form->handleRequest($request);
@@ -53,6 +61,10 @@ class VenteController extends AbstractController
      */
     public function show(Vente $vente): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         return $this->render('vente/show.html.twig', [
             'vente' => $vente,
         ]);
@@ -63,6 +75,11 @@ class VenteController extends AbstractController
      */
     public function edit(Request $request, Vente $vente): Response
     {
+
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         $form = $this->createForm(VenteType::class, $vente);
         $form->handleRequest($request);
 
@@ -83,6 +100,9 @@ class VenteController extends AbstractController
      */
     public function delete(Request $request, Vente $vente): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         if ($this->isCsrfTokenValid('delete'.$vente->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($vente);

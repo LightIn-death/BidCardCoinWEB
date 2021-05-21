@@ -20,6 +20,9 @@ class ProduitController extends AbstractController
      */
     public function index(ProduitRepository $produitRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         return $this->render('produit/index.html.twig', [
             'produits' => $produitRepository->findAll(),
         ]);
@@ -30,6 +33,10 @@ class ProduitController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         $produit = new Produit();
         $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
@@ -53,6 +60,10 @@ class ProduitController extends AbstractController
      */
     public function show(Produit $produit): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         return $this->render('produit/show.html.twig', [
             'produit' => $produit,
         ]);
@@ -63,6 +74,11 @@ class ProduitController extends AbstractController
      */
     public function edit(Request $request, Produit $produit): Response
     {
+
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
 
@@ -83,6 +99,10 @@ class ProduitController extends AbstractController
      */
     public function delete(Request $request, Produit $produit): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+
         if ($this->isCsrfTokenValid('delete'.$produit->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($produit);

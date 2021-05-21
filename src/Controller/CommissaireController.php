@@ -20,6 +20,8 @@ class CommissaireController extends AbstractController
      */
     public function index(CommissaireRepository $commissaireRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('commissaire/index.html.twig', [
             'commissaires' => $commissaireRepository->findAll(),
         ]);
@@ -30,6 +32,8 @@ class CommissaireController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $commissaire = new Commissaire();
         $form = $this->createForm(CommissaireType::class, $commissaire);
         $form->handleRequest($request);
@@ -53,6 +57,8 @@ class CommissaireController extends AbstractController
      */
     public function show(Commissaire $commissaire): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('commissaire/show.html.twig', [
             'commissaire' => $commissaire,
         ]);
@@ -63,6 +69,8 @@ class CommissaireController extends AbstractController
      */
     public function edit(Request $request, Commissaire $commissaire): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $form = $this->createForm(CommissaireType::class, $commissaire);
         $form->handleRequest($request);
 
@@ -83,6 +91,8 @@ class CommissaireController extends AbstractController
      */
     public function delete(Request $request, Commissaire $commissaire): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         if ($this->isCsrfTokenValid('delete'.$commissaire->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($commissaire);
