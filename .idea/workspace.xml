@@ -20,16 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38e200e-0943-46aa-8e93-6af34d483928" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210521203242.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Assosiciation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/AssosiciationRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BidCardCoinWEB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BidCardCoinWEB.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210305132149.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210325152931.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Adresse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Adresse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/LotType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/LotType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +172,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/me" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -220,6 +220,7 @@
       <workItem from="1621538503648" duration="6303000" />
       <workItem from="1621626750105" duration="278000" />
       <workItem from="1621629648109" duration="1628000" />
+      <workItem from="1622022791491" duration="1638000" />
     </task>
     <servers />
   </component>
